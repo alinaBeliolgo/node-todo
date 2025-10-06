@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Список задач
+  ul
+    each task in tasks
+      li
+        form(action=`/${task.id}/toggle`, method="POST", style="display:inline")
+          button(type="submit") #{task.done ? '✅' : '⬜'}
+        | #{task.title}
+        form(action=`/${task.id}/delete`, method="POST", style="display:inline")
+          button(type="submit") Удалить
+  a(href="/new") Добавить задачу
+  br
+  a(href="/about") О нас
