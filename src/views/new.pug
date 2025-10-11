@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1 Новая задача
+    
+    form(action="/new", method="POST")
+        .form-group
+            label(for="title") Название задачи:
+            input.form-control(type="text", id="title", name="title", required)
+        button.btn.btn-primary(type="submit") Создать задачу
+    br
+    a(href="/") ← Назад к списку

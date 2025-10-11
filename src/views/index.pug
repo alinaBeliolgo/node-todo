@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 Список задач
+    
+    if todos.length > 0
+        each todo in todos
+            div.todo-item(class=todo.completed ? 'completed' : '')
+                span= todo.title
+                .todo-actions
+                    form(action=`/${todo.id}/toggle`, method="POST")
+                        button.btn(class=todo.completed ? 'btn-primary' : 'btn-success', type="submit")
+                            if todo.completed
+                                | Отметить невыполненной
+                            else
+                                | Отметить выполненной
+                    form(action=`/${todo.id}/delete`, method="POST")
+                        button.btn.btn-danger(type="submit") Удалить
+    else
+        p Задачи отсутствуют. 
+            a(href="/new") Создайте первую задачу!
