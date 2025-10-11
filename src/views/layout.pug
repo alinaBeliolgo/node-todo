@@ -1,7 +1,89 @@
 doctype html
-html
-  head
-    title= title
-    link(rel="stylesheet", href="/style.css")
-  body
-    block content
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{title} | #{appName}
+        style.
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            .container {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .nav {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+            .nav a {
+                margin-right: 15px;
+                text-decoration: none;
+                color: #007bff;
+            }
+            .nav a:hover {
+                text-decoration: underline;
+            }
+            .todo-item {
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .todo-item.completed {
+                background-color: #d4edda;
+                text-decoration: line-through;
+            }
+            .todo-actions form {
+                display: inline;
+                margin-left: 10px;
+            }
+            .btn {
+                padding: 5px 10px;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+            }
+            .btn-primary {
+                background-color: #007bff;
+                color: white;
+            }
+            .btn-success {
+                background-color: #28a745;
+                color: white;
+            }
+            .btn-danger {
+                background-color: #dc3545;
+                color: white;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+            .form-control {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+    body
+        .container
+            .nav
+                a(href="/") Главная
+                a(href="/new") Новая задача
+                a(href="/about") О нас
+            
+            block content
